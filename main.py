@@ -23,18 +23,31 @@ while True:
         print('Введите число "1" для выбора английского алфавита или число "2" - для русского')
         continue
 
-while True:
-    step = input('Укажите шаг сдвига: ')
-    if step.isdigit() and int(step) > 0:
-        break
-    else:
-        print('Введите целое положительное число')
-        continue
+if alphabet == '1':
+    while True:
+        step = input('Укажите шаг сдвига (от 1 до 25): ')
+        if step.isdigit() and 0 < int(step) <= 25:
+            break
+        else:
+            print('Введите целое положительное число')
+            continue
+
+if alphabet == '2':
+    while True:
+        step = input('Укажите шаг сдвига (от 1 до 31): ')
+        if step.isdigit() and 0 < int(step) <= 31:
+            break
+        else:
+            print('Введите целое положительное число')
+            continue
 
 if alphabet == '1':
     flag = False
     while not flag:
-        symbol_set = input('Введите символы английского алфавита:\n')
+        if cipher == '1':
+            symbol_set = input('Введите текст на английском языке:\n')
+        elif cipher == '2':
+            symbol_set = input('Введите символы английского алфавита:\n')
         if symbol_set == '':
             continue
         lower_symbol_set = symbol_set.lower()
@@ -48,7 +61,10 @@ if alphabet == '1':
 elif alphabet == '2':
     flag = False
     while not flag:
-        symbol_set = input('Введите символы русского алфавита:\n')
+        if cipher == '1':
+            symbol_set = input('Введите текст на русском языке:\n')
+        elif cipher == '2':
+            symbol_set = input('Введите символы русского алфавита:\n')
         if symbol_set == '':
             continue
         lower_symbol_set = symbol_set.lower()
