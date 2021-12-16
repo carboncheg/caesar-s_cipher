@@ -41,39 +41,38 @@ if alphabet == '2':
             print('Введите целое положительное число')
             continue
 
-if alphabet == '1':
+input_txt_en = 'Введите текст на английском языке:\n'
+input_sym_en = 'Введите символы английского алфавита:\n'
+input_txt_ru = 'Введите текст на русском языке:\n'
+input_sym_ru = 'Введите символы русского алфавита:\n'
+ord_f_en = ord('a')
+ord_l_en = ord('z')
+ord_f_ru = ord('а')
+ord_l_ru = ord('я')
+
+def check_validity(input_txt, input_sym, ord_f, ord_l):
     flag = False
     while not flag:
         if cipher == '1':
-            symbol_set = input('Введите текст на английском языке:\n')
+            symbol_set = input(input_txt)
         elif cipher == '2':
-            symbol_set = input('Введите символы английского алфавита:\n')
+            symbol_set = input(input_sym)
         if symbol_set == '':
             continue
         lower_symbol_set = symbol_set.lower()
-        for i in range(ord('a'), ord('z') + 1):
+        for i in range(ord_f, ord_l + 1):
             if chr(i) not in lower_symbol_set:
                 continue
             else:
                 flag = True
                 break
+    return symbol_set
+
+if alphabet == '1':
+    symbol_set = check_validity(input_txt_en, input_sym_en, ord_f_en, ord_l_en)
 
 elif alphabet == '2':
-    flag = False
-    while not flag:
-        if cipher == '1':
-            symbol_set = input('Введите текст на русском языке:\n')
-        elif cipher == '2':
-            symbol_set = input('Введите символы русского алфавита:\n')
-        if symbol_set == '':
-            continue
-        lower_symbol_set = symbol_set.lower()
-        for i in range(ord('а'), ord('я') + 1):
-            if chr(i) not in lower_symbol_set:
-                continue
-            else:
-                flag = True
-                break
+    symbol_set = check_validity(input_txt_ru, input_sym_ru, ord_f_ru, ord_l_ru)
 
 def encrypt():
     lower_symbol_set = symbol_set.lower()
