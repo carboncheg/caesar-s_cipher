@@ -107,18 +107,18 @@ def decrypt():
             print(symbol_set[i], end='')
 
 if cipher == '1' and alphabet == '1':
-    start_alphabet = ord('a') - 1
-    end_alphabet = ord('z')
+    start_alphabet = ord_f_en - 1
+    end_alphabet = ord_l_en
     encrypt()
 elif cipher == '1' and alphabet == '2':
-    start_alphabet = ord('а') - 1
-    end_alphabet = ord('я')
+    start_alphabet = ord_f_ru - 1
+    end_alphabet = ord_l_ru
     encrypt()
 if cipher == '2' and alphabet == '1':
-    start_alphabet = ord('a')
-    end_alphabet = ord('z') + 1
+    start_alphabet = ord_f_en
+    end_alphabet = ord_l_en + 1
     decrypt()
 elif cipher == '2' and alphabet == '2':
-    start_alphabet = ord('а')
-    end_alphabet = ord('я') + 1
+    start_alphabet = ord_f_ru
+    end_alphabet = ord_l_ru + 1
     decrypt()
